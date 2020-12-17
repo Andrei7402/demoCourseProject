@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все пользователи</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:each=" user : ${allUsers} ">
+    <table align="center" class="table table-striped table-light">
+        <tr>
+            <td>ID</td>
+            <td>Логин</td>
+            <td>Имя пользователя</td>
+            <td>Фамилия пользователя</td>
+            <td>Пароль</td>
+            <td>Роль</td>
+            <td>Удалить</td>
+        </tr>
+        <tr>
+            <td><a th:text="${user.getId()}">userId</a></td>
+            <td><a th:text="${user.getUserName()}">userName</a></td>
+            <td><a th:text="${user.getFirstName()}">userFirstName</a></td>
+            <td><a th:text="${user.getLastName()}">userLastName</a></td>
+            <td><a th:text="${user.getPassword()}">UserPassword</a></td>
+            <td>
+                <div th:each="role : ${user.getRoles()}">
+                    <a th:text="${role.getName()}">roleName</a>
+                </div>
+            </td>
+            <form th:method="POST" th:action="@{/users/{id}(id=${user.getId()})}">
+                <td><input class="btn btn-primary" type="submit" value="Удалить"></td>
+            </form>
+        </tr>
+    </table>
+</div>
+<a href="/users/create"><button type="button" class="btn btn-primary">Создать пользователя</button></a>
+<a href="/role/allRoles"><button type="button" class="btn btn-primary">Все роли</button></a>
+<a href="/"><button type="button" class="btn btn-primary">Назад</button></a>
+</body>
+</html>

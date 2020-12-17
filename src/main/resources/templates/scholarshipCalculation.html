@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор стипендии</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="w-50 p-3">
+    <div class="container mt-6">
+<form  th:method="post" th:action="@{/subj/calculateValue}" th:object="${sub}" >
+<div  class="form-group">
+    <label for="programming"> Программирование на Java:</label>
+    <input class="form-control" min="0" max="10" th:field="*{programming}" type="text" id="programming">
+
+    <label for="mathematics"> Математика:</label>
+    <input class="form-control" min="0" max="10" th:field="*{mathematics}" type="number" id="mathematics">
+
+    <label for="siSharp"> Программирование на C#:</label>
+    <input class="form-control" min="0" max="10" th:field="*{siSharp}" type="number" id="siSharp">
+
+    <label for="physical"> Физкультура:</label>
+    <input class="form-control" min="0" max="10" th:field="*{physical}" type="number" id="physical">
+
+    <label for="economic"> Экономика:</label>
+    <input class="form-control" min="0" max="10" th:field="*{economic}" type="number" id="economic">
+    <div class="w-50 p-3">
+    <input class="btn btn-primary" type="submit" value="Посчитать">
+        <a href="/"><button type="button" class="btn btn-primary">Назад</button></a>
+    </div>
+    </div>
+</form>
+    </div>
+</div>
+
+
+<h2 align="center"><span id="price1" th:utext="${result}"></span>  </h2>
+
+</body>
+</html>

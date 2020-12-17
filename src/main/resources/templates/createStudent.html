@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание студента</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="w-50 p-3">
+    <div class="container mt-6">
+    <form th:method="post" th:action="@{/stud/save}" th:object="${st}">
+
+    <label for="firstName"> Введите имя:</label>
+    <input class="form-control" th:field="*{firstName}" type="text" id="firstName">
+
+    <label for="lastName"> Введите фамилию:</label>
+    <input class="form-control" th:field="*{lastName}" type="text" id="lastName">
+
+    <label for="faculty"> Введите факультет:</label>
+    <input class="form-control" th:field="*{faculty}" type="text" id="faculty">
+
+    <label for="course"> Введите курс:</label>
+    <input class="form-control" th:field="*{course}" type="number" id="course">
+
+    <label for="grants"> Введите стипендию:</label>
+    <input class="form-control" th:field="*{grants}" type="number" id="grants">
+<div class="w-50 p-3">
+    <input class="btn btn-primary" type="submit" value="Создать">
+</div>
+    </form>
+    </div>
+</div>
+</body>
+</html>

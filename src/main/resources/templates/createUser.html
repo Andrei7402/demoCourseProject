@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать пользователя</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="w-50 p-3">
+    <div class="container mt-6">
+<form th:method="post" th:action="@{/users}" th:object="${newUser}">
+
+    <label for="userName"> Введите логин:</label>
+    <input class="form-control" th:field="*{userName}" type="text" id="userName">
+
+    <label for="firstName"> Введите имя:</label>
+    <input class="form-control" th:field="*{firstName}" type="text" id="firstName">
+
+    <label for="lastName"> Введите фамилию:</label>
+    <input class="form-control" th:field="*{lastName}" type="text" id="lastName">
+
+    <label for="password"> Введите пароль:</label>
+    <input class="form-control" th:field="*{password}" type="text" id="password">
+
+    <label for="roles"> Введите номер роли:</label>
+    <input class="form-control" th:field="*{roles}" type="number" id="roles">
+    <div class="w-50 p-3">
+    <input type="submit" class="btn btn-primary" value="Создать">
+     <a href="/" class=""><button type="button" class="btn btn-primary">Назад</button></a>
+    </div>
+</form>
+    </div>
+</div>
+
+</body>
+</html>

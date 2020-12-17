@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание роли</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="w-50 p-3">
+    <div class="container mt-6">
+<form th:method="post" th:action="@{/role}" th:object="${newRole}">
+    <h3> Имя должно быть: ADMIN или USER </h3>
+    <label for="name"> Введите имя:</label>
+    <input th:field="*{name}" type="text" id="name"class="form-control">
+    <div class="w-50 p-3">
+    <input type="submit" value="Create" class="btn btn-primary">
+        <a href="/"><button type="button" class="btn btn-primary">Назад</button></a>
+
+    </div>
+</form>
+</div>
+</div>
+
+</body>
+</html>
